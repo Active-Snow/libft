@@ -6,18 +6,22 @@
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:41:01 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/11 09:47:43 by btinturi         ###   ########.fr       */
+/*   Updated: 2022/10/13 13:44:10 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t		i;
+	char		*string;
 
+	string = (char *)s;
 	i = 0;
 	while (i < n)
 	{
-		s[i] = '\0';
+		string[i] = 0;
 		i++;
 	}
 }

@@ -6,16 +6,17 @@
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:27:22 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/13 09:34:58 by btinturi         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:17:28 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
+	if (c >= 'a' && c <= 'z')
 	{
-		return (c - 32);
+		c = c - 32;
 	}
-	else
-		return (0);
+	return (c);
 }

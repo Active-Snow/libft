@@ -6,11 +6,13 @@
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:15:49 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/11 09:26:54 by btinturi         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:17:08 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+int	ft_strlen(const char *str)
 {
 	int	nb;
 

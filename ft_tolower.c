@@ -6,16 +6,17 @@
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:35:57 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/13 09:38:18 by btinturi         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:17:16 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 	{
-		return (c + 32);
+		c = c + 32;
 	}
-	else
-		return (0);
+	return (c);
 }

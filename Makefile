@@ -1,28 +1,27 @@
-CC=cc
-NAME=libft.a
-CFLAGS=-Wall -Wextra -Werror
-OPTIONS=-c -I.
-SRC= ft_mem*.c ft_str*.c ft_is*.c ft_bzero
-OBJ=*.o
-BONUS= ft_lst*.c
+SRCS 	= ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isprint.c ft_memset.c ft_strlen.c ft_memcpy.c ft_bzero.c ft_memmove.c ft_strlcat.c ft_strlcpy.c ft_strchr.c ft_tolower.c ft_toupper.c ft_strrchr.c ft_strncmp.c
 
-all: $(NAME)
+OBJS 	= ${SRCS:.c=.o}
 
-$(NAME): $(OBJ)
-	ar -CRS $(NAME) $(OBJ)
+NAME 	= libft.a
 
-$(OBJ): $(SRC)
-	$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
+CC  	= gcc
+
+RM		= rm -f
+
+CFLAGS		= -Wall -Wextra -Werror
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+${NAME}:	${OBJS}
+			ar rc ${NAME} ${OBJS}
+
+all:		${NAME}
 
 clean:
-	rm -f $(OBJ)
+			${RM} ${OBJS}
 
-fclean:
-	rm -f $(NAME)
+fclean: 	clean
+			${RM} ${NAME}
 
-re: fclean all
-
-BONUS: $(BONUS)
-	$(CC) $(CFLAGS) $(OPTIONS) $(BONUS)
-	ar -crs $(NAME) $(OBJ)
-
+re:			clean all

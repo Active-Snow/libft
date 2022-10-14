@@ -6,9 +6,11 @@
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:25:44 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/11 16:06:42 by btinturi         ###   ########.fr       */
+/*   Updated: 2022/10/14 10:22:48 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t i)
 {
@@ -19,7 +21,9 @@ void	*ft_memmove(void *dest, const void *src, size_t i)
 	csrc = (char *)src;
 	cdest = (char *)dest;
 	len = 0;
-	if (cdest > cssrc)
+	if (!dest && !src)
+		return (NULL);
+	if (cdest > csrc)
 		while (i-- > 0)
 			cdest[i] = csrc[i];
 	else
