@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 15:35:49 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/17 13:53:47 by btinturi         ###   ########.fr       */
+/*   Created: 2022/10/19 10:54:04 by btinturi          #+#    #+#             */
+/*   Updated: 2022/10/19 14:31:49 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*cpys;
+	char	*str;
+	int		lens1;
+	int		lens2;
+	int		i;
 
-	cpys = (unsigned char *)s;
-	while (n--)
+	if (s1 && s2)
 	{
-		if (*cpys == (unsigned char)c)
-			return (cpys);
-		cpys++;
+		lens1 = ft_strlen(s1);
+		lens2 = ft_strlen(s2);
+		str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+		if (!str)
+			return (NULL);
+		i = -1;
+		while (s1[++i])
+			str[i] = s1[i];
+		i = -1;
+		while (s2[++i])
+		{
+			str[lens1] = s2[i];
+			lens1++;
+		}
+		str[lens1] = '\0';
+		return (str);
 	}
 	return (NULL);
 }

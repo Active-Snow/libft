@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btinturi <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 15:35:49 by btinturi          #+#    #+#             */
-/*   Updated: 2022/10/17 13:53:47 by btinturi         ###   ########.fr       */
+/*   Created: 2022/10/18 14:25:17 by btinturi          #+#    #+#             */
+/*   Updated: 2022/10/19 10:53:26 by btinturi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*cpys;
+	size_t	i;
+	char	*ret;
+	size_t	siz;
 
-	cpys = (unsigned char *)s;
-	while (n--)
+	if (!s)
+		return (NULL);
+	siz = ft_strlen(s);
+	if (start > siz)
 	{
-		if (*cpys == (unsigned char)c)
-			return (cpys);
-		cpys++;
+		start = siz;
+		len = 0;
 	}
-	return (NULL);
+	else if (siz < start + len)
+		len = siz - start;
+	ret = ft_calloc(len + 1, sizeof(char));
+	if (!ret)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		ret[i] = s[start + i];
+		i++;
+	}
+	ret[i] = 0;
+	return (ret);
 }
